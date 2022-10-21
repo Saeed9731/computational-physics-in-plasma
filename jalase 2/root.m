@@ -27,4 +27,5 @@ while abs(f(xn)) > e
     xn = (x1 + x2) / 2;
 end
 
-display('The root is xn = ', xn)
+disp('The root is xn = ')
+disp(xn)
