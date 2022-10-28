@@ -8,32 +8,31 @@ double f(int x)
 
 int main()
 {
-    double x1 = 1;
-    double x2 = -10;
+    double x1 = -200;
+    double x2 = 300;
     double xn;
     if (f(x1) * f(x2) >= 0)
     {
         std::cout << "please change the interval!!!! \n";
         exit(0);
     }
-    else if ((x1 - x2) >= 0.1)
+    do
     {
         xn = (x1 + x2) / 2;
-    }
-    // .........................
-    if (f(xn) == 0)
-    {
-        exit(0);
-    }
-    else if (f(x1) * f(xn) < 0)
-    {
-        x2 = xn;
-    }
-    else
-    {
-        x1 = xn;
-    }
+        if (f(xn) == 0)
+        {
+            break;
+        }
+        else if (f(x1) * f(xn) < 0)
+        {
+            x2 = xn;
+        }
+        else
+        {
+            x1 = xn;
+        }
 
-    std::cout << "the root is: " <<xn;
+    } while ((x2 - x1) >= 0.01);
+    std::cout << "the root is: " << xn;
     return 0;
 }
