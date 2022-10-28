@@ -1,31 +1,30 @@
 clc;
 clear;
-syms x
 
-f = input('f(x)= ');
-x1 = input('x1= ');
-x2 = input('x2= ');
-e = input('e= ');
-f = inline(f);
+f = @(x) (x.^3 - x.^2 + 2);
 
-if f(x1) * f(x2) > 0
-    error('change the interval')
-end
+x1 = -200;
+x2 = 300;
 
 n = 0;
-xn = (x1 + x2) / 2;
 
-while abs(f(xn)) > e
+while (x2 - x1) > 0.01
     n = n + 1;
 
-    if f(x1) * f(xn) > e
+    if f(x1) * f(x2) > 0
+        error('change the interval')
+    end
+
+    xn = (x1 + x2) / 2;
+
+    if f(x1) * f(xn) < 0
         x2 = xn;
     else
         x1 = xn;
     end
 
-    xn = (x1 + x2) / 2;
 end
 
 disp('The root is xn = ')
 disp(xn)
+disp(n)
