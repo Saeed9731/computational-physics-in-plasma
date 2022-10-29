@@ -3,13 +3,13 @@
 
 double f(double x)
 {
-    return pow(x, 3) - pow(x, 2) + 2;
+    return pow(x, 3) + 2 * pow(x, 2) + 3 * x + 4;
 }
 
 int main()
 {
     double x1 = -200;
-    double x2 = 300;
+    double x2 = 200;
     double xn;
     if (f(x1) * f(x2) >= 0)
     {
